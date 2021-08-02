@@ -1,0 +1,19 @@
+{
+  "name": "altex-project",
+  "version": "1.0.0",
+  "description": "Фронтенд разработка",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "altex"
+  ],
+  "author": "Tojiboyev Jamshid <jamshid_tojiboyev@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "animate.css": "^4.1.1",
+    "slick-carousel": "^1.8.1"
+  }
+}
