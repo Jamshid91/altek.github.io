@@ -1,9 +1,14 @@
-// window.onloadstart = function() {
+// window.onload = function() {
         let header = document.querySelector('header');
+        let nav = document.querySelector('nav');
+        let logoNav = document.querySelector('.nav__logo path');
+        let navBtn = document.querySelector('.nav__button');
+        let navList = document.querySelectorAll('.nav__list a');
         let backImg = document.querySelector('header .circle_img .img');
         let hidden = document.querySelector('.hidden');
         let coruselText = document.querySelector('.corusel__text');
-        let coruselList = document.querySelector('.corusel__list')
+        let coruselItem = document.querySelector('.corusel__item');
+        let coruselList = document.querySelectorAll('.corusel__list')
         let headerText = document.querySelector('.header_text');
         let headerImg = document.querySelector('.header_images');
         let images = document.querySelectorAll('.header_images img');
@@ -13,6 +18,9 @@
       
         const body = document.body
         const [first, second, thrid] = images;
+
+        
+       
 
         setTimeout(() => {
           site.classList.add('spanAnim')
@@ -30,8 +38,10 @@
         function scrollPage() {
 
             const positionHeader = headerText.getBoundingClientRect().top;
+            const positionCorusel = coruselItem.getBoundingClientRect().top;
         
             const screenPosition = window.innerHeight / 1.75;
+            const screenPositionCorusel = window.innerHeight;
 
             let addAnimTextImg = function() {
               headerText.classList.add('headerText')
@@ -39,14 +49,24 @@
             }
 
             if(screenPosition > positionHeader) {
-            
+
+
+              setTimeout(() => {
+                nav.style.background = "white"
+                logoNav.attributes[1].value = 'red'
+                navBtn.classList.add('colorButton')
+                navList.forEach(text => {
+                  text.classList.add('colorNav')
+                })
+              }, 3000);
+
                   header.classList.add('headerFixed')
                   first.classList.add('leftImg')
                   second.classList.add('middleImg')
                   thrid.classList.add('rightImg')
 
 
-                var jam = setTimeout(addAnimTextImg,  900);  
+                setTimeout(addAnimTextImg,  900);  
 
 
                   
@@ -63,8 +83,17 @@
                 setTimeout(() => {
                       header.classList.add('headerNone') 
                       }, 3000);
-            } else {
+            }
 
+            if(screenPositionCorusel > positionCorusel) {
+              coruselText.classList.add('caruselTextAnim')
+              coruselList.forEach(list => {
+                list.classList.add('addCoruselList')
+              })
+              
+
+            } else {
+              coruselText.classList.remove('caruselTextAnim')
             }
 
         }

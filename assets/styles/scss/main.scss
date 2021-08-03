@@ -221,18 +221,14 @@
 
     .corusel {
         width: 100%;
-        height: 100vh;
-        position: relative;
-        top: 100px;
-        left: 0;
+        height: auto;
+        margin-top: 200px;
         transition: 5s ease !important;
+        .container {
+            height: 100%;
+        }
         .corusel__text {
-            transition: 2s ease !important;
-            // position: absolute;
-            // top: 0;
-            // left: 50%;
-            // transform: translate(-50%);
-            // z-index: -1;
+            transition: 1s ease !important;
             h2 {
                 text-align: center;
                 @include text(54px, "Madeevolvesans-thin", $color-text-dark);
@@ -243,7 +239,7 @@
         }
 
         .caruselTextAnim {
-            top: -250px;
+            margin-top: -250px;
         }
     }
 
@@ -251,9 +247,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        // margin-top: -500px;
-        height: auto;
-        position: relative;
+        margin-top: 100px;
 
         button {
             position: absolute;
@@ -290,22 +284,25 @@
             height: 350px;
             border-radius: 10px;
             animation: scale .5s linear;
+            position: relative;
 
             // transition: .5s ease;
             img {
                 width: 100%;
                 height: 100%;
+                position: absolute;
                 border-radius: 10px !important;
-                object-fit: contain;
+                object-fit: cover;
             }
         }
         .addCoruselList {
             width: 793px !important;
             height: 437px !important;
-            margin-top: -100px;
+            margin-top: 0px;
         }
 
         .scaleCorusel {
+            
             animation: scale .5s linear;
         }
     }
