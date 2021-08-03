@@ -1,4 +1,4 @@
-// window.onload = function() {
+window.onload = function() {
         let header = document.querySelector('header');
         let nav = document.querySelector('nav');
         let logoNav = document.querySelector('.nav__logo path');
@@ -153,4 +153,4 @@
       // } )
 
        
-// }
+}
