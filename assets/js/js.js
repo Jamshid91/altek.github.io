@@ -41,7 +41,7 @@ window.onload = function() {
             const positionCorusel = coruselItem.getBoundingClientRect().top;
         
             const screenPosition = window.innerHeight / 1.75;
-            const screenPositionCorusel = window.innerHeight;
+            const screenPositionCorusel = window.innerHeight / 1.1;
 
             let addAnimTextImg = function() {
               headerText.classList.add('headerText')
@@ -85,16 +85,16 @@ window.onload = function() {
                       }, 3000);
             }
 
-            if(screenPositionCorusel > positionCorusel) {
-              coruselText.classList.add('caruselTextAnim')
-              coruselList.forEach(list => {
-                list.classList.add('addCoruselList')
-              })
+            // if(screenPositionCorusel > positionCorusel) {
+            //   coruselText.classList.add('caruselTextAnim')
+            //   coruselList.forEach(list => {
+            //     list.classList.add('addCoruselList')
+            //   })
               
 
-            } else {
-              coruselText.classList.remove('caruselTextAnim')
-            }
+            // } else {
+            //   coruselText.classList.remove('caruselTextAnim')
+            // }
 
         }
 
