@@ -20,12 +20,13 @@
     
     nav {
         width: 100%;
+        // height: 50px;
         background: transparent;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 99999;
-        padding-top: 26px;
+        padding: 26px 0 10px 0;
         .nav__desctop {
             @include display(center, space-between);
             .nav__item {
@@ -63,21 +64,26 @@
             }
         }
     }
+    .navBgc {
+        background-color: #fff;
+    }
+    .navHidden {
+        display: none;
+    }
     header {
         @include bg-color($bg-color);
         margin: 0 auto;
         overflow: hidden;
-        transition: 1s ease-in !important;
+        transition: .5s ease-in !important;
+        padding-top: 120px !important;
         position: relative;
+        z-index: 5;
 
-        
-        // .circle_img {
-        //     width: 100%;
-        //     height: 100%;
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        // }
+
+        .container {
+            @include display-direction(center, space-between, column)
+        }
+
         .circle_img {
             width: 100%;
             height: 100%;
@@ -107,16 +113,14 @@
         .header_text {
             width: 794px;
             text-align: center;
-            position: absolute;
-            top: 120px;
-            left: 50%;
-            transform: translate(-50%);
-            transition: 1s ease-in  !important;
+            position: relative;
+            top: 0;
+            transition: .5s ease-in  !important;
             h1 {
                 @include text(54px, "Madeevolvesans-thin", $color-text-light);
                 text-transform: uppercase;
                 letter-spacing: 3%;
-                // line-height: 85px;
+                // line-height: 65px;
                 a {
                     color: $color-text;
                     position: relative;
@@ -141,19 +145,17 @@
             }
         }
         .headerText {
-            top: -200px !important;
+           top: -500px !important;
         }
 
 
         .header_images {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%);
+            position: relative;
             width: 993.59px;
             height: 261px;
-            transition: 1s ease-in  !important;
+            transition: .5s ease-in  !important;
             z-index: 9999;
+            bottom: 0;
             img {
                 position: absolute;
                 border-radius: 10px;
@@ -168,13 +170,13 @@
                     left: 280px;
                     z-index: 5;
                     bottom: 0;
-                    transition: .6s ease-in !important;
+                    transition: .4s ease-in !important;
                 }
                 &:nth-child(3) {
                     bottom: -30px; 
                     z-index: 4;
                     left: 600px;
-                    transition: .7s ease-in;
+                    transition: .5s ease-in;
                     width: 438px;
                     height: 241px;
                     transform: rotate(4.53deg);
@@ -182,7 +184,7 @@
 
             }
             .leftImg {
-                animation: left .4s ease-out;
+                animation: left .3s ease-out;
                 left: 265px;
                 bottom: -40px !important;
                 transform: rotate(0) !important;
@@ -202,6 +204,30 @@
             bottom: -300px;
         }
 
+        .advertising {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 99999;
+            transition: .5s;
+
+            div {
+                transition: .5s;
+
+            }
+
+            video {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
     }
     .headerFixed {
         position: fixed;
@@ -212,6 +238,7 @@
 
     .headerBgc {
        background-color: #fff;
+       z-index: 0;
     }
 
     .headerNone {
@@ -220,26 +247,53 @@
     // End header
 
     .corusel {
-        width: 100%;
-        height: auto;
-        margin-top: 200px;
-        transition: 5s ease !important;
+        @include bg-color($color-white);
+        height: auto !important;
+        position: relative;
+        top: 768px;
+        z-index: 0;
+        transition: 2s ease !important;
+        padding: 50px 0;
         .container {
             height: 100%;
         }
         .corusel__text {
             transition: 1s ease !important;
+            position: relative;
+            top: 0;
+            h5{
+                text-align: center;
+                @include text(18px, "Madeevolvesans-medium", $color-text-light);
+                letter-spacing: 10px; 
+                text-transform: uppercase;
+            }
             h2 {
                 text-align: center;
                 @include text(54px, "Madeevolvesans-thin", $color-text-dark);
                 letter-spacing: 3%;
                 // line-height: 85px;
                 text-transform: uppercase;
+                margin-top: 25px;
             }
         }
 
         .caruselTextAnim {
-            margin-top: -250px;
+            top: -350px;
+        }
+
+        .corusel_links {
+            width: 590px;
+            margin: 0 auto;
+            @include display(center, space-around);
+            margin-top: 40px;
+
+            a {
+                @include text(18px, 'Madeevolvesans', $color-grey);
+                text-decoration: none;
+                &:hover {
+                    color: $red;
+                }
+            }
         }
     }
 
@@ -247,8 +301,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 100px;
         position: relative;
+        margin-top: 300px;
+        transition: 2s;
 
         button {
             position: absolute;
@@ -299,7 +354,6 @@
         .addCoruselList {
             width: 793px !important;
             height: 437px !important;
-            margin-top: 0px;
         }
 
         .scaleCorusel {
@@ -308,9 +362,12 @@
         }
     }
 
+    .coruselItem {
+        margin-top: 100px;
+    }
+
     .coruselAnim {
-       top: 100px !important;
-       z-index: 0;
+       top: 250px !important;
     }
 
     // End corusel
@@ -318,8 +375,9 @@
     .decison {
         width: 100%;
         height: auto;
-        background-color: #fff;
+        background-color: $color-white;
         padding-top: 100px;
+        margin-top: 200px;
 
         .decison__text {
             text-align: center;
@@ -361,10 +419,11 @@
 
     .blog {
         @include bg-color($bg-color);
-        padding: 50px 0;
+        height: 768px !important;
+        padding: 103px 0;
 
         .blog__text {
-            margin-bottom: 30px;
+            margin-bottom: 60px;
             h2 {
                 text-align: center;
                 @include text(18px, 'Madeevolvesans-medium', $color-grey);
@@ -418,7 +477,7 @@
             background-color: transparent !important;
             position: relative !important;
             display: block !important;
-            margin: 40px !important;
+            margin: 60px !important;
             transition: .5s !important;
 
             &:hover {
@@ -440,12 +499,12 @@
 
     footer {
         @include bg-color($color-text-dark);
-        height: 110vh;
+        height: 768px !important;
         position: relative;
         margin-top: 0;
         z-index: 9999;
-        padding: 50px 0;
-        transition: 1s ease-in !important;
+        padding: 70px 0;
+        transition: .5s ease-in !important;
 
         .footer_hat_text {
             h4 {
@@ -453,7 +512,6 @@
                 text-transform: uppercase;
                 letter-spacing: 10px;
                 text-align: center;
-                margin-top: 70px;
             }
         }
         .footer_title_text {
@@ -487,7 +545,7 @@
         }
         .footer_contact {
             @include display(center, center);
-            margin-top: 80px;
+            margin-top: 107px;
             a {
                 text-decoration: none;
                 width: 60px;
@@ -511,7 +569,7 @@
         .footer_address {
             @include display-direction(center, space-between, column);
             height: 150px;
-            margin-top: 60px;
+            margin-top: 90px;
             .email {
                 @include text(18px, 'Madeevolvesans-medium', $color-white);
                 text-decoration: none;

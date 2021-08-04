@@ -1,19 +1,48 @@
 window.onload = function() {
   let header = document.querySelector('header');
+  let nav = document.querySelector('nav');
+  let logoNav = document.querySelector('.nav__logo path');
   let hidden = document.querySelector('.hidden');
+  let corusel = document.querySelector('.corusel');
+  let coruselItem = document.querySelector('.corusel__item');
   let coruselText = document.querySelector('.corusel__text');
-  let coruselList = document.querySelector('.corusel__list')
+  let coruselList = document.querySelectorAll('.corusel__list')
   let headerText = document.querySelector('.header_text');
   let headerImg = document.querySelector('.header_images');
   let images = document.querySelectorAll('.header_images img');
+  let backImg = document.querySelector('header .circle_img .img');
   let site = document.querySelector('.site');
   let mob = document.querySelector('.mob');
   let web = document.querySelector('.web');
+  let advertisings = document.querySelectorAll('.advertising div')
+  let headerTexts = document.querySelectorAll('.header_text a')
 
   const body = document.body
   
 const [first, second, thrid] = images;
-console.log(hidden)
+const [websiteText, webmobText, webappText] = headerTexts;
+const [website, webmob, webapp] = advertisings;
+
+websiteText.addEventListener('mouseover', () => {
+  website.style.display = 'block'
+});
+websiteText.addEventListener('mouseout', () => {
+  website.style.display = 'none'
+});
+
+webmobText.addEventListener('mouseover', () => {
+  webmob.style.display = 'block'
+});
+webmobText.addEventListener('mouseout', () => {
+  webmob.style.display = 'none'
+});
+
+webappText.addEventListener('mouseover', () => {
+  webapp.style.display = 'block'
+});
+webappText.addEventListener('mouseout', () => {
+  webapp.style.display = 'none'
+});
 
   setTimeout(() => {
     site.classList.add('spanAnim')
@@ -25,76 +54,120 @@ console.log(hidden)
     web.classList.add('spanAnim')
   }, 3000);
 
-  window.addEventListener('scroll', () => {
-   
 
-    const positionHeaderText = headerImg.getBoundingClientRect().top;
-    const positionCoruselText = coruselText.getBoundingClientRect().top;
-    
-    const screenPositionText = window.innerHeight;
-
-    const screenPosition = window.innerHeight / 2;
-
- if(screenPositionText> positionHeaderText) {
-  
- }
-
-      if(screenPosition > positionCoruselText) {
-      coruselText.classList.add('caruselTextAnim')
-      $('.corusel__list').addClass('addCoruselList')
-    }
-     else {
-      coruselText.classList.remove('caruselTextAnim')
-      $('.corusel__list').removeClass('addCoruselList')
-    }
-
-    
-  });
-
-  document.addEventListener('scroll', () => {
-    
-    const positionHeaderText = headerText.getBoundingClientRect().top;
-    
-    const screenPositionText = window.innerHeight;
-
-    if(screenPositionText > positionHeaderText) {
-
-      setTimeout(() => {
-        
-      // header.style.display = 'none'
-      }, 2000);
-      
-    }
-
-    
-    // else {
-    //   body.classList.add('disabledScroll')
-    // }
-  })
+     
  
 
       $(window).on('scroll', function () {
+        
         if ($(window).scrollTop()) {
-          // $(headerImg).addClass('headerImg')
-          // $(first).addClass('leftImg')
-          // $(second).addClass('middleImg')
-          // $(thrid).addClass('rightImg')
-          // $(header).addClass('headerBgc')
-          // $(headerText).addClass('headerText')
+          $(header).addClass('headerFixed')
+          $(first).addClass('leftImg')
+          $(second).addClass('middleImg')
+          $(thrid).addClass('rightImg')
 
+          setTimeout(() => {
+          $(headerText).addClass('headerText')
+          $(headerImg).addClass('headerImg')   
+          }, 500);
+
+          setTimeout(() => {
+          $(backImg).addClass('animBackImg')
+          }, 800);
+
+          setTimeout(() => {
+            $(header).addClass('headerBgc')  
+          }, 1000);
+
+          setTimeout(() => {
+            $(header).addClass('headerNone')  
+            $('.nav__list a').addClass('colorNav')
+            $('.nav__button ').addClass('colorButton')
+            $('nav').addClass('navBgc')
+            logoNav.attributes[1].value = '#F13651'
+          }, 1200);
+
+          setTimeout(() => {
+            $(corusel).addClass('coruselAnim')  
+
+            // setTimeout(() => {
+            //   $(coruselItem).addClass('coruselItem')
+            // }, 1000);
+          }, 1500);
+          
         } else {
-          //   $(headerImg).removeClass('headerImg')
-          // $(first).removeClass('leftImg')
-          // $(second).removeClass('middleImg')
-          // $(thrid).removeClass('rightImg')
-          // $(header).removeClass('headerBgc')
-          // $(headerText).removeClass('headerText')
-          // $('.corusel').removeClass('coruselAnim')
-          // $('.nav__list a').removeClass('colorNav')
-          // $('.nav__button ').removeClass('colorButton')
-          // $(coruselText).removeClass('caruselTextAnim')
+          $(header).removeClass('headerFixed')
+          $(first).removeClass('leftImg')
+          $(second).removeClass('middleImg')
+          $(thrid).removeClass('rightImg')
+
+          setTimeout(() => {
+            $(headerText).removeClass('headerText')
+            $(headerImg).removeClass('headerImg')
+          }, 500);
+
+          setTimeout(() => {
+            $(backImg).removeClass('animBackImg')
+            }, 800);
+
+          
+            setTimeout(() => {
+              $(header).removeClass('headerBgc')  
+            }, 1000);
+
+            setTimeout(() => {
+              $(header).removeClass('headerNone') 
+              $('.nav__list a').removeClass('colorNav')
+              $('.nav__button ').removeClass('colorButton')
+              $('nav').removeClass('navBgc')
+              logoNav.attributes[1].value = '#fff'
+            }, 1200);
+
+            setTimeout(() => {
+              $(corusel).removeClass('coruselAnim')  
+            }, 1500);
+
+            $(nav).removeClass('navHidden')
         }
       });
+
+
+
+      window.addEventListener('scroll', () => {
+        const positionCoruselText = coruselText.getBoundingClientRect().top;
+        const positionCoruselItem = coruselItem.getBoundingClientRect().top;
+        
+        const screenPositionCorusel = window.innerHeight / 2;
+        const screenPositionCoruselItem = window.innerHeight / 1.5;
+
+        if(screenPositionCorusel > positionCoruselText) {
+          coruselItem.classList.add('coruselItem')
+        } else {
+          coruselItem.classList.remove('coruselItem')
+        }
+
+        if(screenPositionCoruselItem > positionCoruselItem) {
+          coruselText.classList.add('caruselTextAnim')
+          coruselItem.classList.add('coruselItem')
+          setTimeout(() => {
+            nav.classList.add('navHidden')
+          }, 1000);
+
+          coruselList.forEach(corusel => {
+            corusel.classList.add('addCoruselList')
+          })
+          coruselItem.classList.add('beforeCoruselItem')
+
+        } else {
+          coruselText.classList.remove('caruselTextAnim')
+          // nav.classList.remove('navHidden')
+          coruselList.forEach(corusel => {
+            corusel.classList.remove('addCoruselList')
+          })
+        }
+
+      })
+
 
 
     window.addEventListener('scroll', () => {
@@ -122,4 +195,9 @@ console.log(hidden)
       }
     })
 }
+
+
+
+
+
 

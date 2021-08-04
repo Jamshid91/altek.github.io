@@ -32,24 +32,41 @@ window.onload = function() {
           web.classList.add('spanAnim')
         }, 3000);
 
-        document.addEventListener('scroll', scrollPage);
-
+        window.addEventListener('scroll', scrollPage);
+         
+  
+         
 
         function scrollPage() {
 
-            const positionHeader = headerText.getBoundingClientRect().top;
+          // if(window.scrollTo(0, 0)) {
+          //   alert()
+          // }
+
+            const positionHeader = headerImg.getBoundingClientRect().top;
+            const positionNav = nav.getBoundingClientRect().bottom;
             const positionCorusel = coruselItem.getBoundingClientRect().top;
         
-            const screenPosition = window.innerHeight / 1.75;
+            const screenPosition = window.innerHeight / 1.5;
             const screenPositionCorusel = window.innerHeight / 1.1;
+            const screenPositionNav = window.innerHeight;
+
+            let clearScroll = setTimeout(() => {
+              window.scrollTo(0, 0)
+            }, 1);
+
+            clearTimeout(clearScroll)
 
             let addAnimTextImg = function() {
               headerText.classList.add('headerText')
               headerImg.classList.add('headerImg')
             }
 
+           
+
             if(screenPosition > positionHeader) {
 
+              // window.scrollTo(0, 0)
 
               setTimeout(() => {
                 nav.style.background = "white"
@@ -83,6 +100,8 @@ window.onload = function() {
                 setTimeout(() => {
                       header.classList.add('headerNone') 
                       }, 3000);
+
+                      
             }
 
             // if(screenPositionCorusel > positionCorusel) {
@@ -137,13 +156,13 @@ window.onload = function() {
     
       //       } else {
       //         clearTimeout(headerNone)
-      //           // $(headerText).removeClass('headerText')
-      //           // $('.corusel').removeClass('coruselAnim')
-      //           // $('.nav__list a').removeClass('colorNav')
-      //           // $('.nav__button ').removeClass('colorButton')
-      //           // $(coruselText).removeClass('caruselTextAnim')
-      //           // $(header).css('display', 'block')
-      //           // $(headerImg).removeClass('headerImg')
+      //           $(headerText).removeClass('headerText')
+      //           $('.corusel').removeClass('coruselAnim')
+      //           $('.nav__list a').removeClass('colorNav')
+      //           $('.nav__button ').removeClass('colorButton')
+      //           $(coruselText).removeClass('caruselTextAnim')
+      //           $(header).css('display', 'block')
+      //           $(headerImg).removeClass('headerImg')
       //           $(first).removeClass('leftImg')
       //           $(second).removeClass('middleImg')
       //           $(thrid).removeClass('rightImg')
@@ -154,3 +173,32 @@ window.onload = function() {
 
        
 }
+
+
+
+
+// window.addEventListener('scroll', () => {
+    //   let footer = document.querySelector('footer');
+    //   let counterBtn = document.querySelector('.owl-nav');
+    //   let line = document.querySelector('.line');
+    
+    //   const positionFooter = counterBtn.getBoundingClientRect().top;
+  
+    //   const screenPosition = window.innerHeight / 1.45;
+  
+      
+    //   if(screenPosition > positionFooter) {
+    //     footer.classList.add('animFooter');
+    //     setTimeout(() => {
+    //       line.classList.add('lineAnim')
+    //     }, 1500);
+    //   }
+    //    else {
+    //     footer.classList.remove('animFooter')
+    //     // line.classList.remove('lineAnim')
+    //     setTimeout(() => {
+    //       line.classList.remove('lineAnim')
+    //     }, 1000);
+    //   }
+    // })
+  }
